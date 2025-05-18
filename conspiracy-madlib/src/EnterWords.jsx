@@ -48,12 +48,13 @@ export default function EnterWords(){
     
     function onSubmit(e){
         e.preventDefault()
-        
+        // console.log('submit-form',formInfo)
         // setFormInfo(formInfo)
         setJSON(JSON.stringify.formInfo)
+        console.log()
         // setFormInfo({})
     }
-    console.log(json)
+    // console.log(json)
 
     return(
         <div className="enter_words">
