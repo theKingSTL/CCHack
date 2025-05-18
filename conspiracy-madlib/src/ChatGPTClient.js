@@ -1,15 +1,13 @@
-import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' }); // load variables early, path relative to your file
-
 import OpenAI from "openai";
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
 
 class ChatGPTClient {
   constructor() {
     this.openai = new OpenAI({
       apiKey: OPENAI_API_KEY,
+      dangerouslyAllowBrowser: true
     });
   }
 async sendPrompt(promptText) {
