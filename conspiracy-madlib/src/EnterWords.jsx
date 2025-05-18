@@ -50,8 +50,8 @@ export default function EnterWords(){
         e.preventDefault()
         // console.log('submit-form',formInfo)
         // setFormInfo(formInfo)
-        setJSON(JSON.stringify.formInfo)
-        console.log()
+        // setJSON(JSON.stringify.formInfo)
+        console.log(formInfo)
         // setFormInfo({})
     }
     // console.log(json)
