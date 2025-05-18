@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config({ path: '../config.env' }); // load variables early, path relative to your file
+dotenv.config({ path: '../.env' }); // load variables early, path relative to your file
 
 import OpenAI from "openai";
 
@@ -12,19 +12,19 @@ class ChatGPTClient {
       apiKey: OPENAI_API_KEY,
     });
   }
- async sendPrompt(promptText) {
-    try {
-      const res = await this.openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: promptText }],
-      });
+async sendPrompt(promptText) {
+  try {
+    const res = await this.openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: promptText }],
+    });
 
-      const answer = res.data.choices[0].message.content;
-      return answer;
-    } catch (err) {
-      console.error('Error fetching from OpenAI:', err.message);
-      return null;
-    }
+    const answer = res.choices[0].message.content;
+    return answer;
+  } catch (err) {
+    console.error('Error fetching from OpenAI:', err.message);
+    return null;
   }
+}
 }
 export default ChatGPTClient;
