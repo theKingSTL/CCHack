@@ -14,6 +14,11 @@ const Results = ({ prompt }) => {
         setText(result)
     };
 
+    useEffect(()=>{
+        setDone(false);
+        console.log('i worked')
+    },[prompt])
+
     if (!done) {
         runTest()
     }
